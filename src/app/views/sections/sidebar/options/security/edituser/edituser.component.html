@@ -1,0 +1,119 @@
+<body id="page-top">
+<div class="loading" *ngIf="nofound">
+    <app-nofound></app-nofound>
+</div>
+
+<div class="loading" *ngIf="!nofound">
+  <div id="wrapper">
+
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" *ngIf='sidebarActive == true'>
+      <app-sidebar></app-sidebar>
+      <button id="sidebarToggleTopOne" class="btn rounded-circle mr-3" *ngIf='sidebarActive == true' (click)="hideSidebar()">
+        <i class="fa fa-bars"></i>
+      </button>
+    </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+
+        <app-header></app-header>        
+        <button id="sidebarToggleTopTwo" class="btn rounded-circle mr-3" *ngIf='sidebarActive == false'
+          (click)="hideSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="container-fluid">
+          <!-- start content -->
+
+
+          <div class="container-fluid">
+            <div class="col-lg-4" style="margin: 0 auto">
+              <div class="form-group" *ngIf="error">
+                <span class="help-block">
+                  <strong>{{ msj }}</strong>
+                </span>
+              </div>
+              <div class="form-group" *ngIf="exit">
+                <span class="help-block">
+                  <strong>{{ msj }}</strong>
+                </span>
+              </div>
+
+              <form [formGroup]="EditUserForm" (ngSubmit)="onEditUser(EditUserForm.value)" errorTailor>
+
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    Tipo*
+                    <select type="text" style="background-color: whitesmoke" formControlName="idtypeId"
+                      class="form-control" autofocus>
+                      <option selected disabled hidden style="display: none" value=""></option>
+                      <option *ngFor="let typeid of typeids" value="{{ typeid.id }}">{{ typeid.abbreviation }}</option>
+                    </select>
+                  </div>
+  
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    identificación*
+                    <input id="idnumber" type="text" class="form-control" formControlName="idnumber" autofocus
+                      maxlength="20" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    Primer nombre*
+                    <input type="text" class="form-control" formControlName="firstname" autofocus
+                      maxlength="20" />
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    segundo nombre
+                    <input type="text" class="form-control" formControlName="secondname" autofocus
+                      maxlength="20" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    Primer Apellido*
+                    <input type="text" class="form-control" formControlName="firstlastname" autofocus
+                      maxlength="20" />
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    Segundo Apellido
+                    <input type="text" class="form-control" formControlName="secondlastname" autofocus
+                      maxlength="20" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  Rol*
+                  <select type="text" style="background-color: whitesmoke" formControlName="roleId" class="form-control"
+                    autofocus>
+                    <option selected disabled hidden style="display: none" value=""></option>
+                    <option *ngFor="let role of roles" value="{{ role.id }}">{{ role.name }}</option>
+  
+                  </select>
+                </div>
+  
+                <div class="form-group">
+                  Email*
+                  <input type="email" class="form-control" formControlName="email" autofocus maxlength="100" />
+                </div>
+                <div class="form-group">
+           
+                    <button class="btn btn-success btn-user btn-block" type="submit"
+                      [disabled]="!EditUserForm.valid">
+                      Actualizar
+                    </button>
+                  
+                </div>
+              </form>
+            </div>
+          </div>
+
+           <!-- end content -->
+        </div>
+      </div>
+
+      <app-footer></app-footer>
+
+    </div>
+  </div>
+  </div>
+</body>

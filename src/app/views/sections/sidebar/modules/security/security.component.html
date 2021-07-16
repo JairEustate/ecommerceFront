@@ -1,0 +1,30 @@
+<li id="module" class="nav-item active" *ngIf="active">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSecurity" aria-expanded="true"
+        aria-controls="collapseSecurity">
+        <i id="iconModule" class="fas fa-lock"></i>
+        <span id="titleModule"> Seguridad</span>
+    </a>
+    <div id="collapseSecurity" class="collapse show" aria-labelledby="headingSecurity" data-parent="#accordionSidebar">
+        <div class="bg-gray-300 py-2 collapse-inner rounded ">
+            <a class="collapse-item active" id="optionModule-active" *ngIf="opt1" routerLink="/create-new-user">Crear Nuevo Usuario</a>
+            <a class="collapse-item" id="optionModule" *ngIf="!opt1" routerLink="/create-new-user">Crear Nuevo Usuario</a>
+            <a class="collapse-item active" id="optionModule-active" *ngIf="opt2" routerLink="/edit-user">Editar Usuario</a>
+            <a class="collapse-item" id="optionModule" *ngIf="!opt2" routerLink="/edit-user">Editar Usuario</a>
+        </div>
+    </div>
+</li>
+
+<li id="module" class="nav-item" *ngIf="!active">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSecurity" aria-expanded="true"
+        aria-controls="collapseSecurity">        
+        <i id="iconModule" class="fas fa-lock"></i>
+        <span id="titleModule">  Seguridad</span>
+    </a>
+    <div id="collapseSecurity" class="collapse" aria-labelledby="headingSecurity" data-parent="#accordionSidebar">
+        <div class="bg-gray-300 py-2 collapse-inner rounded">
+
+            <a class="collapse-item" id="optionModule" routerLink="/create-new-user">Crear Nuevo Usuario</a>
+            <a class="collapse-item" id="optionModule" routerLink="/edit-user">Editar Usuario</a>
+        </div>
+    </div>
+</li>

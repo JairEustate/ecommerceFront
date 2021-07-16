@@ -1,0 +1,83 @@
+<body id="page-top">
+    <div id="wrapper">
+  
+      <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" *ngIf='sidebarActive == true'>
+        <app-sidebar></app-sidebar>
+        <button id="sidebarToggleTopOne" class="btn rounded-circle mr-3" *ngIf='sidebarActive == true' (click)="hideSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
+      </ul>
+  
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+  
+          <app-header></app-header>        
+          <button id="sidebarToggleTopTwo" class="btn rounded-circle mr-3" *ngIf='sidebarActive == false'
+            (click)="hideSidebar()">
+            <i class="fa fa-bars"></i>
+          </button>
+  
+          <div class="container-fluid">
+            <!-- start content -->
+
+            
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <div *ngIf="exit" class="alert alert-success alert-dismissible" role="success">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <b>{{msj}}</b>
+              </div>
+              <div *ngIf="error" class="alert alert-danger alert-dismissible" role="success">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <b>{{msj}}</b>
+              </div>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Identidad</th>
+                      <th>Nombres</th>
+                      <th>Apellidos</th>
+                      <th>Email</th>
+                      <th>Rol</th>
+                      <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                        <th>Identidad</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr *ngFor='let user of users'>
+                      <td>{{user.idtype.abbreviation}} {{user.idnumber}}</td>
+                      <td>{{user.firstname}} {{user.secondname}}</td>
+                      <td>{{user.firstlastname}} {{user.secondlastname}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.role.name}}</td>
+                      <td><button class="btn btn-success btn-user btn-block" (click)="onEdit(user.id)" style="width: 50px;"><i class="fas fa-pen"></i></button></td>
+                      <td><button class="btn btn-danger btn-user btn-block"  (click)="onDelete(user.id, user.firstname,user.firstlastname)" style="width: 50px;"><i class="fas fa-trash-alt"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+             <!-- end content -->
+        <ul style="height: 220px;" *ngIf='sidebarActive == false'>
+        </ul>
+          </div>
+        </div>
+  
+        <app-footer></app-footer>
+  
+      </div>
+    </div>
+  </body>

@@ -1,0 +1,117 @@
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gray-600 sidebar sidebar-dark accordion" id="accordionSidebar"
+      *ngIf='sidebarActive == true'>
+      <app-sidebar></app-sidebar>
+      <button id="sidebarToggleTopOne" class="btn rounded-circle mr-3" *ngIf='sidebarActive == true'
+        (click)="hideSidebar()">
+        <i class="fa fa-bars"></i>
+      </button>
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column bg-gray-200">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Header -->
+        <app-header></app-header>
+        <button id="sidebarToggleTopTwo" class="btn rounded-circle mr-3" *ngIf='sidebarActive == false'
+          (click)="hideSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
+        <!-- End of Header -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="col-lg-4" style="margin: 0 auto">
+            <div class="form-group" *ngIf="error">
+              <span class="help-block">
+                <strong>{{ msj }}</strong>
+              </span>
+            </div>
+            <div class="form-group" *ngIf="exit">
+              <span class="help-block">
+                <strong>{{ msj }}</strong>
+              </span>
+            </div>
+            <form [formGroup]="RegisterUserForm" (ngSubmit)="onRegisterUser(RegisterUserForm.value)" errorTailor>
+
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  Tipo*
+                  <select type="text" style="background-color: whitesmoke" formControlName="idtypeId"
+                    class="form-control" autofocus>
+                    <option selected disabled hidden style="display: none" value=""></option>
+                    <option *ngFor="let typeid of typeids" value="{{ typeid.id }}">{{ typeid.abbreviation }}</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  identificación*
+                  <input id="idnumber" type="text" class="form-control" formControlName="idnumber" autofocus
+                    maxlength="20" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  Primer nombre*
+                  <input type="text" class="form-control" formControlName="firstname" autofocus
+                    maxlength="20" />
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  segundo nombre
+                  <input type="text" class="form-control" formControlName="secondname" autofocus
+                    maxlength="20" />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  Primer Apellido*
+                  <input type="text" class="form-control" formControlName="firstlastname" autofocus
+                    maxlength="20" />
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  Segundo Apellido
+                  <input type="text" class="form-control" formControlName="secondlastname" autofocus
+                    maxlength="20" />
+                </div>
+              </div>
+              <div class="form-group">
+                Rol*
+                <select type="text" style="background-color: whitesmoke" formControlName="roleId" class="form-control"
+                  autofocus>
+                  <option selected disabled hidden style="display: none" value=""></option>
+                  <option *ngFor="let role of roles" value="{{ role.id }}">{{ role.name }}</option>
+
+                </select>
+              </div>
+
+              <div class="form-group">
+                Email*
+                <input type="email" class="form-control" formControlName="email" autofocus maxlength="100" />
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <button class="btn btn-success btn-user btn-block" id="submit" type="submit"
+                    [disabled]="!RegisterUserForm.valid">
+                    registrar
+                  </button>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <button class="btn btn-secondary btn-user btn-block" (click)="clear()" type="reset">
+                    Limpiar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--finish-->
+        <ul style="height: 150px;" *ngIf='sidebarActive == false'>
+        </ul>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+</body>

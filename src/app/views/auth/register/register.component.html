@@ -1,0 +1,87 @@
+<body>
+  
+    <app-header></app-header>
+
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="breadcrumbs-content">
+            <h1 class="page-title">Registro</h1>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+          <ul class="breadcrumb-nav">
+            <li><a href="index-2.html"><i class="lni lni-home"></i> Inicio</a></li>
+            <li>Registro</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="account-login section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+          <div class="register-form">
+            <div class="title">
+              <h3>¿No tienes cuenta? Registrate</h3>
+              <p>El registro demora menos de un minuto pero le brinda control total sobre sus pedidos.</p>
+            </div>
+            <form class="row" method="post">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-fn">Primer nombre</label>
+                  <input class="form-control" type="text" id="reg-fn" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-ln">Segundo nombre</label>
+                  <input class="form-control" type="text" id="reg-ln" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-email">Dirección de correo electrónico</label>
+                  <input class="form-control" type="email" id="reg-email" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-phone">Número de teléfono</label>
+                  <input class="form-control" type="text" id="reg-phone" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-pass">Contraseña</label>
+                  <input class="form-control" type="password" id="reg-pass" required>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-pass-confirm">Confirmar contraseña</label>
+                  <input class="form-control" type="password" id="reg-pass-confirm" required>
+                </div>
+              </div>
+              <div class="button">
+                <button class="btn" type="submit">Registrarse</button>
+              </div>
+              <p class="outer-link">¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión ahora</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <app-footer></app-footer>
+</body>

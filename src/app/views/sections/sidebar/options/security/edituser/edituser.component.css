@@ -1,0 +1,10 @@
+.myLoader{
+    background-color: white;
+    position:inherit;
+}
+
+.myLoader img{
+    width: 100%;
+    height: 100%;
+	margin: auto;
+}
