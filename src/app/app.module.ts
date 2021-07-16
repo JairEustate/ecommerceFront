@@ -24,7 +24,8 @@ import { NofoundComponent } from './views/nofound/nofound.component';
 import { LogoutComponent } from './views/auth/logout/logout.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { SelectuserComponent } from './views/sections/sidebar/options/security/selectuser/selectuser.component';
-import { ProductsComponent } from './views/products/products.component';
+import { ProductsdetailsComponent } from './views/products/productsdetails/productsdetails.component';
+import { ProductsgridComponent } from './views/products/productsgrid/productsgrid.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProductsComponent } from './views/products/products.component';
     LogoutComponent,
     RegisterComponent,
     SelectuserComponent,
-    ProductsComponent,
+    ProductsdetailsComponent,
+    ProductsgridComponent,
   ],
   imports: [
     routing,
